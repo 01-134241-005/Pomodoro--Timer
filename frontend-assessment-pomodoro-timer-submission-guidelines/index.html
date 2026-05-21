@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pomodoro Daily Timer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="timer-panel" aria-labelledby="app-title">
+        <div class="topline">
+          <div>
+            <p class="eyebrow">Daily Pomodoro</p>
+            <h1 id="app-title">Focus timer</h1>
+          </div>
+          <span id="state-pill" class="state-pill focus" aria-live="polite">Focus</span>
+        </div>
+
+        <div class="timer-stage" id="timer-stage">
+          <div class="progress-ring" aria-hidden="true">
+            <svg viewBox="0 0 240 240">
+              <circle class="track" cx="120" cy="120" r="106"></circle>
+              <circle id="progress-circle" class="progress" cx="120" cy="120" r="106"></circle>
+            </svg>
+            <div class="time-stack">
+              <p id="mode-label" class="mode-label">Ready to focus</p>
+              <div id="time-display" class="time-display" role="timer" aria-live="polite">25:00</div>
+              <p id="status-text" class="status-text">Set your rhythm, then start.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls" aria-label="Timer controls">
+          <button id="start-pause" class="primary-button" type="button">Start</button>
+          <button id="reset" class="secondary-button" type="button">Reset</button>
+        </div>
+
+        <form class="settings" aria-label="Pomodoro settings">
+          <label>
+            <span>Focus</span>
+            <input id="focus-minutes" type="number" min="1" max="120" step="1" value="25">
+            <small>minutes</small>
+          </label>
+          <label>
+            <span>Break</span>
+            <input id="break-minutes" type="number" min="1" max="60" step="1" value="5">
+            <small>minutes</small>
+          </label>
+        </form>
+      </section>
+
+      <section class="history-panel" aria-labelledby="history-title">
+        <div class="history-heading">
+          <div>
+            <p class="eyebrow">Today</p>
+            <h2 id="history-title">Completed focus</h2>
+          </div>
+          <span id="history-count" class="history-count">0</span>
+        </div>
+        <ol id="history-list" class="history-list" aria-live="polite"></ol>
+        <p id="empty-history" class="empty-history">Finished focus sessions will land here and stay after reloads.</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
